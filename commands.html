@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Commands — Lula</title>
+  <meta name="description" content="Explore all Lula Discord Bot commands.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.16), transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.10), transparent 35%),
+        #080810;
+      color: white;
+      min-height: 100vh;
+    }
+
+    nav {
+      width: 100%;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #8b5cf6;
+    }
+
+    nav a {
+      color: #aaaaba;
+      text-decoration: none;
+      margin-left: 25px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 90px 20px 60px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      border-radius: 999px;
+      color: #c4b5fd;
+      background: rgba(139, 92, 246, 0.08);
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 80px);
+      margin-bottom: 20px;
+      letter-spacing: -3px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: #9999a8;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .commands {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 8% 80px;
+    }
+
+    .category {
+      margin-bottom: 50px;
+    }
+
+    .category-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      font-size: 24px;
+    }
+
+    .command-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .command {
+      padding: 20px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.2s;
+    }
+
+    .command:hover {
+      transform: translateY(-3px);
+      border-color: rgba(139,92,246,0.4);
+      background: rgba(139,92,246,0.06);
+    }
+
+    .command-name {
+      font-family: monospace;
+      color: #a78bfa;
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .command-description {
+      color: #9696a5;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .staff {
+      border-color: rgba(239,68,68,0.18);
+    }
+
+    .staff .command-name {
+      color: #f87171;
+    }
+
+    .creator {
+      border-color: rgba(245,158,11,0.18);
+    }
+
+    .creator .command-name {
+      color: #fbbf24;
+    }
+
+    footer {
+      padding: 30px 8%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      color: #666675;
+    }
+
+    @media (max-width: 750px) {
+      nav {
+        padding: 18px 5%;
+      }
+
+      nav div:last-child {
+        display: none;
+      }
+
+      .command-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">Lu<span>la</span></div>
+
+    <div>
+      <a href="index.html">Home</a>
+      <a href="commands.html">Commands</a>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+
+    <div class="badge">
+      ⚡ Lula Commands
+    </div>
+
+    <h1>
+      Everything <span>Lula</span> can do.
+    </h1>
+
+    <p>
+      Explore the commands available for your Discord server.
+    </p>
+
+  </section>
+
+
+  <main class="commands">
+
+
+    <!-- GENERAL -->
+
+    <section class="category">
+
+      <div class="category-title">
+        🌐 General
+      </div>
+
+      <div class="command-list">
+
+        <div class="command">
+          <div class="command-name">/help</div>
+          <div class="command-description">
+            Shows the available commands and information about Lula.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/userinfo</div>
+          <div class="command-description">
+            Shows information about a Discord member.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/serverinfo</div>
+          <div class="command-description">
+            Displays information about the current server.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/membercount</div>
+          <div class="command-description">
+            Shows the current member count.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/boosters</div>
+          <div class="command-description">
+            Displays the server's current boosters.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- LEVELS -->
+
+    <section class="category">
+
+      <div class="category-title">
+        ⭐ XP & Levels
+      </div>
+
+      <div class="command-list">
+
+        <div class="command">
+          <div class="command-name">/rank</div>
+          <div class="command-description">
+            View your current level, XP, progress and rank.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/level</div>
+          <div class="command-description">
+            Learn how the Lula level system works.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/leaderboard</div>
+          <div class="command-description">
+            View the server XP and level leaderboard.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ECONOMY -->
+
+    <section class="category">
+
+      <div class="category-title">
+        🪙 Economy
+      </div>
+
+      <div class="command-list">
+
+        <div class="command">
+          <div class="command-name">/balance</div>
+          <div class="command-description">
+            Check your LH Coins balance.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/moneyboard</div>
+          <div class="command-description">
+            View the richest members of the server.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/daily</div>
+          <div class="command-description">
+            Claim your daily LH Coins reward.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/work</div>
+          <div class="command-description">
+            Work and earn LH Coins.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/pay</div>
+          <div class="command-description">
+            Send LH Coins to another member.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TICKETS -->
+
+    <section class="category">
+
+      <div class="category-title">
+        🎫 Tickets
+      </div>
+
+      <div class="command-list">
+
+        <div class="command">
+          <div class="command-name">/ticket</div>
+          <div class="command-description">
+            Create a private support ticket.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/closeticket</div>
+          <div class="command-description">
+            Close the current ticket.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/add</div>
+          <div class="command-description">
+            Add a member to the current ticket.
+          </div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">/remove</div>
+          <div class="command-description">
+            Remove a member from the current ticket.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MODERATION -->
+
+    <section class="category">
+
+      <div class="category-title">
+        🛡️ Moderation
+      </div>
+
+      <div class="command-list">
+
+        <div class="command staff">
+          <div class="command-name">/clear</div>
+          <div class="command-description">
+            Delete messages from a channel.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/kick</div>
+          <div class="command-description">
+            Kick a member from the server.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/ban</div>
+          <div class="command-description">
+            Ban a member from the server.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/unban</div>
+          <div class="command-description">
+            Remove a member's ban.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/mute</div>
+          <div class="command-description">
+            Give a member a temporary timeout.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/unmute</div>
+          <div class="command-description">
+            Remove a member's timeout.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/warn</div>
+          <div class="command-description">
+            Give a warning to a member.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/warnings</div>
+          <div class="command-description">
+            View a member's warnings.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/unwarn</div>
+          <div class="command-description">
+            Remove a warning from a member.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/slowmode</div>
+          <div class="command-description">
+            Configure channel slowmode.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/lock</div>
+          <div class="command-description">
+            Lock a channel.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/unlock</div>
+          <div class="command-description">
+            Unlock a channel.
+          </div>
+        </div>
+
+        <div class="command staff">
+          <div class="command-name">/nick</div>
+          <div class="command-description">
+            Change a member's nickname.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CREATOR TOOLS -->
+
+    <section class="category">
+
+      <div class="category-title">
+        ⚙️ Creator Tools
+      </div>
+
+      <div class="command-list">
+
+        <div class="command creator">
+          <div class="command-name">/creatortools</div>
+          <div class="command-description">
+            Open Lula's creator management panel.
+          </div>
+        </div>
+
+        <div class="command creator">
+          <div class="command-name">/commandstats</div>
+          <div class="command-description">
+            View command usage statistics.
+          </div>
+        </div>
+
+        <div class="command creator">
+          <div class="command-name">/testfunction</div>
+          <div class="command-description">
+            Run internal bot tests.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    © 2026 Lula. All rights reserved.
+  </footer>
+
+</body>
+</html>
