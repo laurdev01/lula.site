@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Lula — Your Discord Companion</title>
 
   <meta
     name="description"
     content="Lula is a powerful Discord bot for XP, levels, economy, moderation, tickets and more."
-  />
+  >
 
   <style>
     * {
@@ -25,8 +25,16 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(124, 58, 237, 0.18), transparent 35%),
-        radial-gradient(circle at top right, rgba(37, 99, 235, 0.15), transparent 30%),
+        radial-gradient(
+          circle at top left,
+          rgba(124, 58, 237, 0.18),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at top right,
+          rgba(37, 99, 235, 0.15),
+          transparent 30%
+        ),
         #080812;
       color: #ffffff;
       line-height: 1.6;
@@ -43,7 +51,9 @@
       margin: 0 auto;
     }
 
-    /* NAVBAR */
+    /* =========================
+       NAVBAR
+    ========================= */
 
     header {
       position: sticky;
@@ -55,10 +65,11 @@
     }
 
     nav {
-      height: 76px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
@@ -87,7 +98,9 @@
       color: #ffffff;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       padding: 110px 0 100px;
@@ -175,7 +188,9 @@
       color: #e5e7eb;
     }
 
-    /* SECTIONS */
+    /* =========================
+       SECTIONS
+    ========================= */
 
     section {
       padding: 90px 0;
@@ -195,7 +210,9 @@
       color: #90909f;
     }
 
-    /* FEATURES */
+    /* =========================
+       FEATURES
+    ========================= */
 
     .features {
       display: grid;
@@ -239,7 +256,9 @@
       font-size: 14px;
     }
 
-    /* COMMANDS */
+    /* =========================
+       COMMANDS
+    ========================= */
 
     .commands-section {
       background:
@@ -271,6 +290,12 @@
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.035);
       border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: 0.2s ease;
+    }
+
+    .command:hover {
+      transform: translateY(-2px);
+      border-color: rgba(139, 92, 246, 0.3);
     }
 
     .command code {
@@ -291,7 +316,9 @@
       margin-top: 30px;
     }
 
-    /* ABOUT */
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about {
       max-width: 850px;
@@ -305,7 +332,9 @@
       margin-bottom: 15px;
     }
 
-    /* CTA */
+    /* =========================
+       CTA
+    ========================= */
 
     .cta {
       text-align: center;
@@ -335,7 +364,9 @@
       margin-bottom: 25px;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -345,7 +376,9 @@
       text-align: center;
     }
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 850px) {
       .features {
@@ -359,14 +392,14 @@
 
     @media (max-width: 600px) {
       nav {
-        height: auto;
         padding: 20px 0;
         flex-direction: column;
-        gap: 15px;
       }
 
       .nav-links {
         gap: 17px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .hero {
@@ -388,39 +421,54 @@
       .cta h2 {
         font-size: 32px;
       }
+
+      .commands-box {
+        padding: 22px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
   <header>
     <div class="container">
       <nav>
+
         <a href="index.html" class="logo">
           Lu<span>la</span>
         </a>
 
         <div class="nav-links">
           <a href="#features">Features</a>
-          <a href="commands.html">Commands</a>
+          <a href="#commands">Commands</a>
+          <a href="commands.html">All Commands</a>
           <a href="#about">About</a>
         </div>
+
       </nav>
     </div>
   </header>
 
 
-  <!-- HERO -->
+  <!-- =========================
+       MAIN
+  ========================= -->
 
   <main>
 
+    <!-- HERO -->
+
     <section class="hero">
+
       <div class="container">
 
         <div class="badges">
+
           <div class="badge">
             ✦ Your Discord Companion
           </div>
@@ -428,21 +476,24 @@
           <div class="badge development">
             🚧 Currently in Development
           </div>
+
         </div>
 
         <h1>Meet Lula.</h1>
 
         <p>
-          A powerful Discord companion built to bring XP, levels,
-          economy, moderation, tickets and much more to your server.
+          A powerful Discord companion built to bring XP,
+          levels, economy, moderation, tickets and much more
+          to your server.
         </p>
 
         <div class="buttons">
 
-          <!-- PUT YOUR REAL DISCORD INVITE LINK HERE LATER -->
+          <!-- REAL DISCORD INSTALL LINK -->
+
           <a
             class="button primary"
-            href="#"
+            href="https://discord.com/oauth2/authorize?client_id=1555206718366027796"
           >
             ✨ Add Lula to Discord
           </a>
@@ -457,184 +508,386 @@
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- FEATURES -->
+    <!-- =========================
+         FEATURES
+    ========================= -->
 
     <section id="features">
+
       <div class="container">
 
         <div class="section-title">
+
           <h2>Everything your server needs.</h2>
+
           <p>
             Lula combines useful Discord features into one bot.
           </p>
+
         </div>
+
 
         <div class="features">
 
           <div class="card">
-            <div class="icon">⭐</div>
+
+            <div class="icon">
+              ⭐
+            </div>
+
             <h3>XP & Levels</h3>
+
             <p>
               Let your members earn XP, level up and unlock
               different level roles.
             </p>
+
           </div>
 
+
           <div class="card">
-            <div class="icon">💰</div>
+
+            <div class="icon">
+              💰
+            </div>
+
             <h3>Economy</h3>
+
             <p>
               Coins, daily rewards, work and payments give
               your server its own economy.
             </p>
+
           </div>
 
+
           <div class="card">
-            <div class="icon">🏆</div>
+
+            <div class="icon">
+              🏆
+            </div>
+
             <h3>Leaderboards</h3>
+
             <p>
               Let members compete for XP, levels and coins
               through server leaderboards.
             </p>
+
           </div>
 
+
           <div class="card">
-            <div class="icon">🎫</div>
+
+            <div class="icon">
+              🎫
+            </div>
+
             <h3>Tickets</h3>
+
             <p>
               Create support tickets and manage them directly
               from Discord.
             </p>
+
           </div>
 
+
           <div class="card">
-            <div class="icon">🛡️</div>
+
+            <div class="icon">
+              🛡️
+            </div>
+
             <h3>Moderation</h3>
+
             <p>
               Tools for warnings, kicks, bans, mutes,
               slowmode, locks and more.
             </p>
+
           </div>
 
+
           <div class="card">
-            <div class="icon">⚙️</div>
+
+            <div class="icon">
+              ⚙️
+            </div>
+
             <h3>Creator Tools</h3>
+
             <p>
               Powerful tools for managing XP, levels,
               users and bot statistics.
             </p>
+
           </div>
 
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- COMMANDS -->
+    <!-- =========================
+         COMMANDS
+    ========================= -->
 
-    <section class="commands-section" id="commands">
+    <section
+      class="commands-section"
+      id="commands"
+    >
+
       <div class="container">
 
         <div class="section-title">
+
           <h2>Powerful commands.</h2>
+
           <p>
             Everything you need, right inside Discord.
           </p>
+
         </div>
+
 
         <div class="commands-box">
 
           <div class="commands-grid">
 
+
             <div class="command">
               <code>/help</code>
-              <span>View the available commands.</span>
+              <span>
+                View the available commands.
+              </span>
             </div>
+
 
             <div class="command">
               <code>/userinfo</code>
-              <span>View information about a member.</span>
+              <span>
+                View information about a member.
+              </span>
             </div>
+
+
+            <div class="command">
+              <code>/serverinfo</code>
+              <span>
+                View information about the server.
+              </span>
+            </div>
+
 
             <div class="command">
               <code>/rank</code>
-              <span>View your current XP and level.</span>
+              <span>
+                View your current XP and level.
+              </span>
             </div>
+
 
             <div class="command">
               <code>/level</code>
-              <span>Check a member's level.</span>
+              <span>
+                Check a member's level.
+              </span>
             </div>
+
 
             <div class="command">
               <code>/leaderboard</code>
-              <span>View the server XP leaderboard.</span>
+              <span>
+                View the server XP leaderboard.
+              </span>
             </div>
+
 
             <div class="command">
               <code>/balance</code>
-              <span>Check your LH Coins.</span>
+              <span>
+                Check your LH Coins.
+              </span>
             </div>
+
 
             <div class="command">
               <code>/daily</code>
-              <span>Claim your daily reward.</span>
+              <span>
+                Claim your daily reward.
+              </span>
             </div>
+
 
             <div class="command">
               <code>/work</code>
-              <span>Work and earn coins.</span>
+              <span>
+                Work and earn coins.
+              </span>
             </div>
+
+
+            <div class="command">
+              <code>/pay</code>
+              <span>
+                Pay another member.
+              </span>
+            </div>
+
 
             <div class="command">
               <code>/ticket</code>
-              <span>Create a support ticket.</span>
+              <span>
+                Create a support ticket.
+              </span>
             </div>
+
+
+            <div class="command">
+              <code>/closeticket</code>
+              <span>
+                Close the current ticket.
+              </span>
+            </div>
+
 
             <div class="command">
               <code>/warn</code>
-              <span>Warn a server member.</span>
+              <span>
+                Warn a server member.
+              </span>
             </div>
+
+
+            <div class="command">
+              <code>/warnings</code>
+              <span>
+                View a member's warnings.
+              </span>
+            </div>
+
 
             <div class="command">
               <code>/mute</code>
-              <span>Mute a member.</span>
+              <span>
+                Mute a member.
+              </span>
             </div>
+
+
+            <div class="command">
+              <code>/unmute</code>
+              <span>
+                Remove a member's mute.
+              </span>
+            </div>
+
+
+            <div class="command">
+              <code>/kick</code>
+              <span>
+                Kick a member from the server.
+              </span>
+            </div>
+
 
             <div class="command">
               <code>/ban</code>
-              <span>Ban a member from the server.</span>
+              <span>
+                Ban a member from the server.
+              </span>
+            </div>
+
+
+            <div class="command">
+              <code>/clear</code>
+              <span>
+                Delete messages from a channel.
+              </span>
+            </div>
+
+
+            <div class="command">
+              <code>/slowmode</code>
+              <span>
+                Configure channel slowmode.
+              </span>
+            </div>
+
+
+            <div class="command">
+              <code>/lock</code>
+              <span>
+                Lock a channel.
+              </span>
+            </div>
+
+
+            <div class="command">
+              <code>/unlock</code>
+              <span>
+                Unlock a channel.
+              </span>
+            </div>
+
+
+            <div class="command">
+              <code>/creatortools</code>
+              <span>
+                Open Lula Creator Tools.
+              </span>
+            </div>
+
+
+            <div class="command">
+              <code>/commandstats</code>
+              <span>
+                View command statistics.
+              </span>
             </div>
 
           </div>
 
+
           <div class="commands-button">
+
             <a
               class="button secondary"
               href="commands.html"
             >
               View All Commands →
             </a>
+
           </div>
 
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- ABOUT -->
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
     <section id="about">
+
       <div class="container">
 
         <div class="section-title">
+
           <h2>About Lula</h2>
+
         </div>
+
 
         <div class="about">
 
@@ -656,29 +909,34 @@
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- CTA -->
+    <!-- =========================
+         CTA
+    ========================= -->
 
     <section class="cta">
+
       <div class="container">
 
         <div class="cta-box">
 
-          <h2>Ready to meet Lula?</h2>
+          <h2>
+            Ready to meet Lula?
+          </h2>
 
           <p>
-            Explore the commands and see what Lula can do
-            for your Discord server.
+            Add Lula to your Discord server and start exploring
+            everything it can do.
           </p>
 
           <div class="buttons">
 
-            <!-- PUT YOUR REAL DISCORD INVITE LINK HERE -->
             <a
               class="button primary"
-              href="#"
+              href="https://discord.com/oauth2/authorize?client_id=1555206718366027796"
             >
               ✨ Add Lula to Discord
             </a>
@@ -695,17 +953,24 @@
         </div>
 
       </div>
+
     </section>
 
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
+
     <div class="container">
+
       © 2026 Lula. All rights reserved.
+
     </div>
+
   </footer>
 
 </body>
