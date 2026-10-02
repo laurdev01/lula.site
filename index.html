@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Lula — Discord Bot</title>
-  <meta name="description" content="Lula is a powerful Discord bot for XP, economy, moderation, tickets and more.">
+  <title>Lula — Your Discord Companion</title>
+
+  <meta
+    name="description"
+    content="Lula is a powerful Discord bot for XP, levels, economy, moderation, tickets and more."
+  />
 
   <style>
     * {
@@ -14,209 +18,375 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.18), transparent 35%),
-        radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.12), transparent 35%),
-        #080810;
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.18), transparent 35%),
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.15), transparent 30%),
+        #080812;
       color: #ffffff;
+      line-height: 1.6;
       min-height: 100vh;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 8, 18, 0.78);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
     nav {
-      width: 100%;
-      padding: 22px 8%;
+      height: 76px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
+      justify-content: space-between;
     }
 
     .logo {
-      font-size: 25px;
+      font-size: 28px;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: -1px;
     }
 
     .logo span {
       color: #8b5cf6;
     }
 
-    nav a {
-      color: #b8b8c7;
-      text-decoration: none;
-      margin-left: 25px;
-      transition: 0.2s;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    .hero {
-      min-height: 78vh;
+    .nav-links {
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 20px;
+      gap: 28px;
     }
 
-    .hero-content {
-      max-width: 850px;
+    .nav-links a {
+      color: #b9b9c9;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 110px 0 100px;
+      text-align: center;
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
     }
 
     .badge {
       display: inline-block;
-      padding: 8px 15px;
-      border: 1px solid rgba(139, 92, 246, 0.4);
+      padding: 8px 14px;
       border-radius: 999px;
-      color: #c4b5fd;
+      border: 1px solid rgba(139, 92, 246, 0.35);
       background: rgba(139, 92, 246, 0.08);
-      margin-bottom: 25px;
-      font-size: 14px;
+      color: #c4b5fd;
+      font-size: 13px;
     }
 
-    h1 {
-      font-size: clamp(55px, 10vw, 100px);
+    .badge.development {
+      border-color: rgba(245, 158, 11, 0.4);
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 9vw, 100px);
       line-height: 0.95;
-      margin-bottom: 25px;
-      letter-spacing: -4px;
-    }
-
-    h1 span {
-      background: linear-gradient(90deg, #a78bfa, #60a5fa);
+      letter-spacing: -5px;
+      margin-bottom: 28px;
+      background: linear-gradient(
+        135deg,
+        #ffffff,
+        #c4b5fd,
+        #60a5fa
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .subtitle {
-      color: #a7a7b5;
-      font-size: 19px;
-      line-height: 1.7;
-      max-width: 650px;
-      margin: auto;
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #a7a7b7;
+      font-size: 18px;
     }
 
     .buttons {
-      margin-top: 35px;
       display: flex;
       justify-content: center;
-      gap: 15px;
       flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 35px;
     }
 
     .button {
-      display: inline-block;
-      padding: 14px 25px;
-      border-radius: 10px;
-      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 12px;
       font-weight: 700;
-      transition: 0.2s;
+      font-size: 15px;
+      transition: 0.2s ease;
     }
 
-    .primary {
-      background: #7c3aed;
-      color: white;
-      box-shadow: 0 0 30px rgba(124, 58, 237, 0.25);
-    }
-
-    .primary:hover {
-      background: #8b5cf6;
+    .button:hover {
       transform: translateY(-2px);
     }
 
-    .secondary {
-      border: 1px solid rgba(255,255,255,0.12);
-      color: white;
-      background: rgba(255,255,255,0.04);
+    .button.primary {
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      box-shadow: 0 12px 35px rgba(99, 102, 241, 0.25);
     }
 
-    .secondary:hover {
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-2px);
+    .button.secondary {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: #e5e7eb;
     }
 
-    .features {
-      padding: 70px 8%;
-      max-width: 1200px;
-      margin: auto;
+    /* SECTIONS */
+
+    section {
+      padding: 90px 0;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
     .section-title h2 {
-      font-size: 35px;
+      font-size: 40px;
       margin-bottom: 10px;
     }
 
     .section-title p {
-      color: #898997;
+      color: #90909f;
     }
 
-    .grid {
+    /* FEATURES */
+
+    .features {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
     .card {
       padding: 28px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.035);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.25s;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: 0.25s ease;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      border-color: rgba(139,92,246,0.4);
-      background: rgba(139,92,246,0.06);
+      border-color: rgba(139, 92, 246, 0.35);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .icon {
-      font-size: 30px;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: rgba(124, 58, 237, 0.13);
+      font-size: 24px;
       margin-bottom: 18px;
     }
 
     .card h3 {
-      margin-bottom: 10px;
       font-size: 20px;
+      margin-bottom: 9px;
     }
 
     .card p {
-      color: #9292a2;
-      line-height: 1.6;
+      color: #9292a1;
+      font-size: 14px;
     }
+
+    /* COMMANDS */
+
+    .commands-section {
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(124, 58, 237, 0.08),
+          transparent 60%
+        );
+    }
+
+    .commands-box {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 35px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(139, 92, 246, 0.18);
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.25);
+    }
+
+    .commands-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .command {
+      padding: 17px 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .command code {
+      color: #c4b5fd;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .command span {
+      display: block;
+      color: #8f8f9f;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .commands-button {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about p {
+      color: #9b9baa;
+      font-size: 17px;
+      margin-bottom: 15px;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .cta-box {
+      padding: 60px 30px;
+      border-radius: 25px;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(124, 58, 237, 0.22),
+          rgba(37, 99, 235, 0.08),
+          rgba(255, 255, 255, 0.025)
+        );
+      border: 1px solid rgba(139, 92, 246, 0.2);
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #9999a9;
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
 
     footer {
-      margin-top: 80px;
-      padding: 30px 8%;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 30px 0;
+      color: #737383;
+      font-size: 13px;
       text-align: center;
-      color: #666675;
     }
 
-    @media (max-width: 800px) {
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .commands-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
       nav {
-        padding: 18px 5%;
+        height: auto;
+        padding: 20px 0;
+        flex-direction: column;
+        gap: 15px;
       }
 
-      nav div:last-child {
-        display: none;
+      .nav-links {
+        gap: 17px;
       }
 
-      .grid {
+      .hero {
+        padding: 80px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .features {
         grid-template-columns: 1fr;
       }
 
-      h1 {
-        letter-spacing: -2px;
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+      .cta h2 {
+        font-size: 32px;
       }
     }
   </style>
@@ -224,137 +394,318 @@
 
 <body>
 
-  <nav>
-    <div class="logo">Lu<span>la</span></div>
+  <!-- NAVIGATION -->
 
-    <div>
-      <a href="#features">Features</a>
-      <a href="#about">About</a>
-    </div>
-  </nav>
-
-  <section class="hero">
-
-    <div class="hero-content">
-
-      <div class="badge">
-        ✦ Your Discord Companion
-      </div>
-
-      <h1>
-        Meet <span>Lula.</span>
-      </h1>
-
-      <p class="subtitle">
-        A powerful Discord bot built to bring XP, economy,
-        moderation, tickets and progression together in one place.
-      </p>
-
-      <div class="buttons">
-
-        <!-- Vom schimba acest link cu invite-ul real al lui Lula -->
-        <a
-          class="button primary"
-          href="#"
-        >
-          Add Lula to Discord
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          Lu<span>la</span>
         </a>
 
-        <a
-          class="button secondary"
-          href="#features"
-        >
-          Explore Features
-        </a>
-
-      </div>
-
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="commands.html">Commands</a>
+          <a href="#about">About</a>
+        </div>
+      </nav>
     </div>
+  </header>
 
-  </section>
 
-  <section class="features" id="features">
+  <!-- HERO -->
 
-    <div class="section-title">
-      <h2>Everything your server needs.</h2>
-      <p>Built around progression, community and moderation.</p>
-    </div>
+  <main>
 
-    <div class="grid">
+    <section class="hero">
+      <div class="container">
 
-      <div class="card">
-        <div class="icon">⭐</div>
-        <h3>XP & Levels</h3>
+        <div class="badges">
+          <div class="badge">
+            ✦ Your Discord Companion
+          </div>
+
+          <div class="badge development">
+            🚧 Currently in Development
+          </div>
+        </div>
+
+        <h1>Meet Lula.</h1>
+
         <p>
-          Let your community progress through a complete
-          level system with ranks and rewards.
+          A powerful Discord companion built to bring XP, levels,
+          economy, moderation, tickets and much more to your server.
         </p>
+
+        <div class="buttons">
+
+          <!-- PUT YOUR REAL DISCORD INVITE LINK HERE LATER -->
+          <a
+            class="button primary"
+            href="#"
+          >
+            ✨ Add Lula to Discord
+          </a>
+
+          <a
+            class="button secondary"
+            href="commands.html"
+          >
+            📖 Explore Commands
+          </a>
+
+        </div>
+
       </div>
+    </section>
 
-      <div class="card">
-        <div class="icon">🪙</div>
-        <h3>Economy</h3>
-        <p>
-          Earn LH Coins through activity, daily rewards
-          and server interaction.
-        </p>
+
+    <!-- FEATURES -->
+
+    <section id="features">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Everything your server needs.</h2>
+          <p>
+            Lula combines useful Discord features into one bot.
+          </p>
+        </div>
+
+        <div class="features">
+
+          <div class="card">
+            <div class="icon">⭐</div>
+            <h3>XP & Levels</h3>
+            <p>
+              Let your members earn XP, level up and unlock
+              different level roles.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">💰</div>
+            <h3>Economy</h3>
+            <p>
+              Coins, daily rewards, work and payments give
+              your server its own economy.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🏆</div>
+            <h3>Leaderboards</h3>
+            <p>
+              Let members compete for XP, levels and coins
+              through server leaderboards.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🎫</div>
+            <h3>Tickets</h3>
+            <p>
+              Create support tickets and manage them directly
+              from Discord.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🛡️</div>
+            <h3>Moderation</h3>
+            <p>
+              Tools for warnings, kicks, bans, mutes,
+              slowmode, locks and more.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">⚙️</div>
+            <h3>Creator Tools</h3>
+            <p>
+              Powerful tools for managing XP, levels,
+              users and bot statistics.
+            </p>
+          </div>
+
+        </div>
+
       </div>
+    </section>
 
-      <div class="card">
-        <div class="icon">🏆</div>
-        <h3>Achievements</h3>
-        <p>
-          Reward members for reaching milestones and
-          becoming part of the community.
-        </p>
+
+    <!-- COMMANDS -->
+
+    <section class="commands-section" id="commands">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Powerful commands.</h2>
+          <p>
+            Everything you need, right inside Discord.
+          </p>
+        </div>
+
+        <div class="commands-box">
+
+          <div class="commands-grid">
+
+            <div class="command">
+              <code>/help</code>
+              <span>View the available commands.</span>
+            </div>
+
+            <div class="command">
+              <code>/userinfo</code>
+              <span>View information about a member.</span>
+            </div>
+
+            <div class="command">
+              <code>/rank</code>
+              <span>View your current XP and level.</span>
+            </div>
+
+            <div class="command">
+              <code>/level</code>
+              <span>Check a member's level.</span>
+            </div>
+
+            <div class="command">
+              <code>/leaderboard</code>
+              <span>View the server XP leaderboard.</span>
+            </div>
+
+            <div class="command">
+              <code>/balance</code>
+              <span>Check your LH Coins.</span>
+            </div>
+
+            <div class="command">
+              <code>/daily</code>
+              <span>Claim your daily reward.</span>
+            </div>
+
+            <div class="command">
+              <code>/work</code>
+              <span>Work and earn coins.</span>
+            </div>
+
+            <div class="command">
+              <code>/ticket</code>
+              <span>Create a support ticket.</span>
+            </div>
+
+            <div class="command">
+              <code>/warn</code>
+              <span>Warn a server member.</span>
+            </div>
+
+            <div class="command">
+              <code>/mute</code>
+              <span>Mute a member.</span>
+            </div>
+
+            <div class="command">
+              <code>/ban</code>
+              <span>Ban a member from the server.</span>
+            </div>
+
+          </div>
+
+          <div class="commands-button">
+            <a
+              class="button secondary"
+              href="commands.html"
+            >
+              View All Commands →
+            </a>
+          </div>
+
+        </div>
+
       </div>
+    </section>
 
-      <div class="card">
-        <div class="icon">🎫</div>
-        <h3>Tickets</h3>
-        <p>
-          A simple ticket system designed to help staff
-          manage support requests.
-        </p>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About Lula</h2>
+        </div>
+
+        <div class="about">
+
+          <p>
+            Lula is a Discord bot created to make communities
+            more interactive, organized and fun.
+          </p>
+
+          <p>
+            From XP and leveling to economy, moderation and
+            tickets, Lula brings useful tools together in one place.
+          </p>
+
+          <p>
+            🚧 Lula is currently in development and new features
+            are being added.
+          </p>
+
+        </div>
+
       </div>
+    </section>
 
-      <div class="card">
-        <div class="icon">🛡️</div>
-        <h3>Moderation</h3>
-        <p>
-          Powerful moderation tools to help keep your
-          Discord server organized.
-        </p>
+
+    <!-- CTA -->
+
+    <section class="cta">
+      <div class="container">
+
+        <div class="cta-box">
+
+          <h2>Ready to meet Lula?</h2>
+
+          <p>
+            Explore the commands and see what Lula can do
+            for your Discord server.
+          </p>
+
+          <div class="buttons">
+
+            <!-- PUT YOUR REAL DISCORD INVITE LINK HERE -->
+            <a
+              class="button primary"
+              href="#"
+            >
+              ✨ Add Lula to Discord
+            </a>
+
+            <a
+              class="button secondary"
+              href="commands.html"
+            >
+              📖 View Commands
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
+    </section>
 
-      <div class="card">
-        <div class="icon">⚙️</div>
-        <h3>Creator Tools</h3>
-        <p>
-          Manage XP, levels, coins, users and server
-          statistics from one powerful dashboard.
-        </p>
-      </div>
+  </main>
 
-    </div>
 
-  </section>
-
-  <section class="features" id="about">
-
-    <div class="section-title">
-      <h2>Built for your community.</h2>
-
-      <p>
-        Lula combines progression, economy and server
-        management into one Discord experience.
-      </p>
-    </div>
-
-  </section>
+  <!-- FOOTER -->
 
   <footer>
-    © 2026 Lula. All rights reserved.
+    <div class="container">
+      © 2026 Lula. All rights reserved.
+    </div>
   </footer>
 
 </body>
